@@ -1,0 +1,37 @@
+*{
+    margin: 0%;
+    padding: 0px;
+}
+body{
+    background: black;
+}
+.det{
+    font-size: 25px;
+    margin-top: 7px;
+    position: relative;
+    top: 18%;
+    left: 20%;
+}
+.button{
+    position: relative;
+    left: 21%;
+}
+form{
+    position: absolute;
+    top: 20%;
+    margin-top: 5%;
+    font-size: 25px;
+    margin-right: 10px;
+}
+center{
+    width: 450px;
+    height: 550px;
+    background:rgb(224, 26, 69);
+    box-shadow: 0 0 40px rgba(5, 150, 218, 0.644);
+    border: rgb(255, 30, 0);
+    position: relative;
+    left: 40%;
+    top: 125px;
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+}

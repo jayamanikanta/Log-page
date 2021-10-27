@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}">
+
+<body>
+    <h1>Register</h1>
+    <div class="code">
+        <center>
+            <form method="POST" class="post-form" action="/signup">  
+                {% csrf_token %}  
+            <div class="container">  
+        <br>  
+            <div class="form-group row">  
+            <label class="col-sm-1 col-form-label"></label>  
+            <div class="col-sm-4">  
+            <h3>Enter Details</h3>  
+            </div>  
+          </div>  
+            <div class="form-group row">  
+            <label class="col-sm-2 col-form-label">UserName:</label>  
+            <div class="col-sm-4">  
+              {{form.username}}
+
+            </div>  
+          </div>  
+          <div class="form-group row">  
+            <label class="col-sm-2 col-form-label">Email:</label>  
+            <div class="col-sm-4">  
+              {{ form.email }}  
+            </div>  
+          </div>  
+            <div class="form-group row">  
+            <label class="col-sm-2 col-form-label">Password:</label>  
+            <div class="col-sm-4" >  
+              {{ form.password }}
+            
+            </div>  
+          </div>  
+            <div class="form-group row">  
+            <label class="col-sm-2 col-form-label">Address:</label>  
+            <div class="col-sm-4">  
+              {{ form.address }}  
+            </div>  
+          </div>  
+            <div class="form-group row">  
+            <label class="col-sm-1 col-form-label"></label>  
+            <div class="col-sm-4">  
+            <button type="submit" class="btn btn-primary">Submit</button>  
+            </div>  
+          </div>  
+            </div>  
+        </form>  
+            
+        </center>
+    </div>
+    <div>
+        {% for messages in messages %}
+        <h3>{{messages}}</h3>
+        {% endfor %}
+    </div>
+    <div class="link">
+        <a href="{% url 'login' %}"><input type="submit" value="LOGIN page"></a>
+        <a href="{% url 'home' %}"><input type="submit" value="HOME page"></a>
+    </div>
+</body>
+</html>

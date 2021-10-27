@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGOUT</title>
+</head>
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {background-color: #ff1111;}
+</style>
+{% load static %}
+<!-- <link rel="stylesheet" type="text/css" href='user.css'> -->
+<link rel="stylesheet" type="text/css" href="{% static 'user.css' %}">
+<body>
+    
+    <div class="button" >
+        <a href="{% url 'user' %}"><input type="submit" value="LOGOUT" style="height: 40px; width: 110px; background: blue; font-family: 'Times New Roman', Times, serif; color: white; font-size: 20px; border-radius: 10px;"></a>
+    </div> 
+
+    <form action="{% url 'user' %}" method="POST">
+    
+        <center>
+            {% csrf_token %}
+            <table border="5">
+                <div class="head">
+                    <thead>
+                        <tr>
+                            <!-- <th>S.no</th> -->
+                            <th>UserName</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </div>
+                 <div class="body">
+                    <tbody>
+                        <tr> 
+                            <!-- <td>{{i.id}}</td> -->
+                            <td>{{i.username}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.address}}</td>                            
+                            <td>
+                                <!-- <input type="submit" value="Edit"> <a href="user_del/{{i.id}}" data-toogle="tooltip" ><input type="submit" value="Delete"></a> -->
+                                <a href="user_del/{{i.id}}" class="btn btn-danger">DELETE</a>
+                                <a href="edit/{{i.id}}" class="btn btn-primary">EDIT</a>
+                            </td>   
+                        </tr>
+                       
+                    </tbody>
+                </div>
+            </table>
+        </center> 
+        
+                  
+    
+    </form>
+    
+
+</body>
+</html>

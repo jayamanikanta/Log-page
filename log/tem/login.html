@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+<body>
+    <div class="head">
+        <h1>LOGIN PAGE</h1>
+    </div>
+    <center>
+        <form action="login" method="POST"> 
+            {% csrf_token%}
+            <div class="reg">
+                <input type="email" name="email" placeholder="username@gmail.com" required><br/>
+                <input type="password" name="password" placeholder="password" required><br/>
+                <a href="{% url 'user' %}"><input type="submit" value="LOGIN" style="height:30px; width:85px; font-family: Verdana, Geneva, Tahoma, sans-serif;background-color: rgb(255, 255, 255) ; color: rgb(0, 0, 0); border-radius: 7px;"></a>
+            </div>
+        </form>
+        <div>
+            {% for messages in messages %}
+            <h3>{{messages}}</h3>
+            {% endfor %}
+        </div>
+    </center>
+    <div class="link">
+        <a href="{% url 'signup' %}"><input type="button" value="SIGNUP Form"></a>
+        <a href="{% url 'home' %}"><input type="button" value="HOME PAGE"></a>
+    </div>
+</body>
+</html>
