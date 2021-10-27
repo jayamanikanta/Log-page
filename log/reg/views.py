@@ -56,10 +56,8 @@ def edit(request,id):
         data = logpage.objects.get(id=id)
 
         form = logform(request.POST or None,instance=data)
-        print(form)
         if form.is_valid():
             form.save()
-            print(form)
         return redirect('user')
     else:
         data=logpage.objects.get(id=id)
